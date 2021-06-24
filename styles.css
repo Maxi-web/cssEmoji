@@ -1,0 +1,593 @@
+:root {
+    --emoji-size:200px;
+    --emoji-colour:#FFC83D;
+    --heart-size:calc(var(--emoji-size)*.1);
+    --heart-colour:rgb(233, 15, 15);
+    --heart-shadow-colour:rgb(138, 62, 62);
+}
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+.container{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    
+}
+.emoji{
+    position: relative;
+    height:var(--emoji-size);
+    width:var(--emoji-size);
+}
+
+.head{
+    background-color: var(--emoji-colour);
+    width:var(--emoji-size);
+    height:var(--emoji-size);
+    border-radius: 50%;
+    position: relative;
+}
+/*#####################EYES###################*/
+.eyes{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    transform: translateX(-50%);
+    left:50%;
+    top: 20%;
+    height:calc(var(--emoji-size)*.25);
+    width: calc(var(--emoji-size)*.8);
+}
+
+.eye{
+    position: relative;
+    width:calc(var(--emoji-size)*.25);
+    height:calc(var(--emoji-size)*.25);
+}
+
+.squint-eye {
+    position: absolute;
+    top:40%;
+    left:50%;
+    transform: translateX(-50%);
+    height: calc(var(--emoji-size)*.1);
+    width: calc(var(--emoji-size)*.2);
+    background-color: black;
+    border-radius: 50%;
+}
+
+.squint-eye::after{
+    content: "";
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    width: 110%;
+    height: calc(var(--emoji-size)*.125);
+    border-radius: 50% 50% 0 0;
+    background-color: var(--emoji-colour);
+    transform: translate(-50%, -50%);
+ }
+
+.oval-eye {
+    position: absolute;
+    height: calc(var(--emoji-size)*.2);
+    width: calc(var(--emoji-size)*.1);
+    background-color: black;
+    border-radius: 50%;
+}
+
+.left-oval-eye, .right-oval-eye {
+    transform: translateX(50%);
+}
+.real-eye{
+    position: absolute;
+    height: calc(var(--emoji-size)*.2);
+    width: calc(var(--emoji-size)*.2);
+    background-color: white;
+    border-radius: 50%;
+}
+
+.real-eye::after{
+    content:"";
+    position: absolute;
+    height: calc(var(--emoji-size)*.1);
+    width: calc(var(--emoji-size)*.1);
+    left: 50%;
+    top:50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: black;
+    border-radius: 50%;
+}
+.cross-eye {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border: 20px solid var(--emoji-colour);
+    border-top: 50px solid black;
+}
+
+.cross-eye::before{
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: -60px;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top: 50px solid var(--emoji-colour);
+  } 
+
+ .left-cross-eye {
+    transform: rotate(-90deg) translateX(10px) translateY(15px);
+} 
+
+.right-cross-eye {
+    transform: rotate(90deg) translateX(-10px) translateY(6px);
+} 
+
+/*######################EYEBROWS################*/
+.eyebrow {
+    width: calc(var(--emoji-size)*.15); 
+    height: calc(var(--emoji-size)*.025);
+    border-radius: calc(var(--emoji-size)*.15)/calc(var(--emoji-size)*.025);
+    left:50%;
+    transform: translateX(-50%);
+    background-color: black;
+} 
+   
+ .left-eyebrow {
+    position: absolute;
+    transform: translateX(-100%) rotate(-20deg);
+}
+.right-eyebrow {
+    position: absolute;
+    transform: rotate(20deg);
+} 
+/*######################MOUTHS################*/
+.cute-mouth {
+    background-color: black;
+    position: absolute;
+    width: calc(var(--emoji-size)*.5);
+    height:calc(var(--emoji-size)*.25);
+    transform: translateX(-50%);
+    top:60%;
+    left:50%;
+    border-radius: 0px 0px calc(var(--emoji-size)*.25) calc(var(--emoji-size)*.25);
+}
+
+ .cute-mouth::before {
+    content: "";
+    background-color: var(--emoji-colour);
+    position: absolute;
+    width: calc(var(--emoji-size)*.625);
+    height: calc(var(--emoji-size)*.25);
+    transform: translateX(calc(var(--emoji-size)*-.0625));
+    border-radius: 0px 0px calc(var(--emoji-size)*.25) calc(var(--emoji-size)*.25);
+    top:calc(var(--emoji-size)*-.05);
+}
+.smile-mouth {
+    z-index: 10;
+    background-color: black;
+    position: absolute;
+    top: calc(var(--emoji-size)*.6);
+    left: calc(var(--emoji-size)*.5);
+    width: calc(var(--emoji-size)*.5);
+    height:calc(var(--emoji-size)*.25);
+    overflow: hidden;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 calc(var(--emoji-size)*.25) calc(var(--emoji-size)*.25);
+    border-top: 6px solid black;
+    border-left: 8px solid black;
+    border-right: 8px solid black;
+    border-bottom: 10px solid black;
+}
+
+.smile-teeth {
+    position: absolute;
+    top: 0;
+    height: calc(var(--emoji-size)*.06);
+    background-image: linear-gradient(to right, #CCCFD0,#FEFBFF,#CCCFD0);
+    width: 100%;
+}
+
+.smile-tongue {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    height: calc(var(--emoji-size)*.15);
+    width: calc(var(--emoji-size)*.25);
+    border-radius: 50%;
+    background-color: #f03a17;
+    transform: translate(-50%, -40%);
+}
+.wink-mouth {
+    z-index: 10;
+    background-color: black;
+    position: absolute;
+    top: calc(var(--emoji-size)*.6);
+    left: calc(var(--emoji-size)*.5);
+    width: calc(var(--emoji-size)*.5);
+    height:calc(var(--emoji-size)*.25);
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 calc(var(--emoji-size)*.25) calc(var(--emoji-size)*.25);
+    border-top: 6px solid black;
+    border-left: 8px solid black;
+    border-right: 8px solid black;
+    border-bottom: 10px solid black;
+    overflow: hidden;
+}
+.wink-tongue {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    height: calc(var(--emoji-size)*.15);
+    width: calc(var(--emoji-size)*.25);
+    border-radius: 50%;
+    background-color: #f03a17;
+    transform: translate(-50%, -40%);
+}
+.laugh-mouth {
+    z-index: 10;
+    background-color: black;
+    position: absolute;
+    top: calc(var(--emoji-size)*.6);
+    left: calc(var(--emoji-size)*.5);
+    width: calc(var(--emoji-size)*.5);
+    height:calc(var(--emoji-size)*.25);
+    overflow: hidden;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 0 calc(var(--emoji-size)*.25) calc(var(--emoji-size)*.25);
+    border-top: 6px solid black;
+    border-left: 8px solid black;
+    border-right: 8px solid black;
+    border-bottom: 10px solid black;
+}
+
+.laugh-teeth {
+    position: absolute;
+    top: 0;
+    height: calc(var(--emoji-size)*.06);
+    background-image: linear-gradient(to right, #CCCFD0,#FEFBFF,#CCCFD0);
+    width: 100%;
+}
+
+.laugh-tongue {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    height: calc(var(--emoji-size)*.15);
+    width: calc(var(--emoji-size)*.25);
+    border-radius: 50%;
+    background-color: #f03a17;
+    transform: translate(-50%, -40%);
+}
+
+.lip {
+    height:20px;
+    width:40px;
+    background-color: var(--emoji-colour);
+    border-right: 10px solid black;
+    border-radius: 50%;
+}
+
+.lips {
+    position: absolute;
+    z-index: 12;
+    top: calc(var(--emoji-size)*.6);
+    left: calc(var(--emoji-size)*.4);
+    opacity: 0;
+}
+/*######################HEARTS################*/
+.heart{
+    z-index: 4;
+    position: absolute;
+    background-color:var(--heart-colour);
+    width: var(--heart-size);
+    height:var(--heart-size);
+    transform: rotate(-45deg);
+}
+
+.heart::after, .heart::before{
+    z-index: 3;
+    content: "";
+    position: absolute;
+    width: var(--heart-size);
+    height:var(--heart-size);
+    border-radius: 50%;
+    background-color: var(--heart-colour);
+}
+
+.heart::before {
+    top:calc(var(--heart-size)*-1);
+    transform: translateY(50%);
+}
+
+.heart::after {
+    left: var(--heart-size);
+    transform: translateX(-50%);
+
+}
+
+.heart-1{
+    /*bottom left heart*/
+    z-index: 11;
+    top:70%;
+    left:-5%;
+    box-shadow: calc(var(--emoji-size)*.01) calc(var(--emoji-size)*.005) calc(var(--emoji-size)*.025) var(--heart-shadow-colour);
+}
+.heart-2{
+    /*right middle heart*/
+    z-index: 11;
+    top:50%;
+    left:95%;
+    box-shadow: calc(var(--emoji-size)*-.01) calc(var(--emoji-size)*-.005) calc(var(--emoji-size)*.025) var(--heart-shadow-colour);
+}
+.heart-3{
+    /*Top left heart*/
+    z-index: 11;
+    top:20%;
+    box-shadow: calc(var(--emoji-size)*.01) calc(var(--emoji-size)*.005) calc(var(--emoji-size)*.025) var(--heart-shadow-colour);
+}
+
+.heart-1::after, .heart-3::after {
+    box-shadow: calc(var(--emoji-size)*.02) 0px calc(var(--emoji-size)*.01) var(--heart-shadow-colour);
+}
+
+.heart-2::before {
+    z-index: 4;
+    box-shadow: 0px calc(var(--emoji-size)*-.02) calc(var(--emoji-size)*.01) var(--heart-shadow-colour);
+}
+/*######################PARTY HAT################*/
+.party-hat{
+    z-index: -1;
+    position: absolute;
+    top:0;
+    width: calc(var(--emoji-size)*.5);
+    height:calc(var(--emoji-size)*.5);
+    -webkit-transform: skewY(40deg) rotate(-10deg); 
+    background-color: rgb(37,76,186);
+    overflow: hidden;
+    opacity: 0;
+
+}
+.stripe1, .stripe2, .stripe3 {
+    position: absolute;
+    background: rgb(249,143,218);
+    height:8px;
+    width: calc(var(--emoji-size)*.75);
+    left:20px;
+    transform: translateX(-50%) rotate(-45deg);
+}
+.stripe2 {
+    left: 30px;
+    top: 20px;
+}
+.stripe3 {
+    left: 40px;
+    top: 30px;
+}
+/*######################KAZOO################*/
+.kazoo{
+    position: absolute;
+    left: 53%;
+    top:67%;
+    opacity: 0;
+}
+
+.kazoo-handle {
+    position: absolute;
+    width: 30px;
+    height: 10px;
+    background-color: purple;
+}
+
+.kazoo-handle::after {
+        content:"";
+        position: absolute;
+        left:100%;
+        top:50%;
+        transform: translateY(-50%);
+        width:10px;
+        height: 20px;
+        background-color: purple;
+}
+
+.kazoo-pipe {
+    position: absolute;
+    left:40px;
+    width: 60px;
+    height: 10px;
+    background-color: blue;
+}
+
+.kazoo-pipe::after {
+    content: "";
+    position: absolute;
+    left:60px;
+    top:10px;
+    width: 50px;
+    height: 30px;
+    border-radius: 0 50% 50% 0 ;
+    border-bottom: 10px solid blue;
+    border-right: 10px solid blue;
+    border-top: 10px solid blue;
+    transform: translateY(-100%);
+}
+/*######################CONFETTI################*/
+.confetti {
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    margin:1rem;
+   }
+   .confetti-div{
+       opacity: 0;
+   }
+   .top-orange{
+       background-color: orange;
+       transform: rotate(35deg);
+       left:30%;
+       top:-10%;  
+   }
+   .top-red{
+       background-color: red;
+       transform:rotate(55deg);
+       left:60%;
+       top:0%;
+   }
+   .top-blue{
+       background-color: blue;
+       transform: rotate(25deg);
+       left:80%;
+       top:-10%;
+   }
+   .top-yellow{
+       background-color: yellow;
+       transform: rotate(10deg);
+       top:20%;
+       left:85%;
+   }
+   .bottom-blue {
+       background-color: blue;
+       transform: rotate(55deg);
+       top:55%;
+       left:-10%;
+   }
+   .bottom-red {
+       background-color: red;
+       transform: rotate(60deg);
+       top:80%;
+       left:-10%;
+   }
+   .bottom-yellow {
+       background-color: yellow;
+       transform: rotate(60deg);
+       top:85%;
+       left:20%;
+   }
+   .bottom-blue2 {
+       background-color: blue;
+       top:85%;
+       left:60%;
+   }
+   .bottom-orange{
+       background-color: orange;
+       top:80%;
+       left:80%;
+   }
+/*######################TEARS################*/
+.drip{
+    opacity: 0;
+    position: absolute;
+    top:50px;
+    width: 20px;
+    height: 20px;
+    border-radius: 100% 0 100% 100%;
+    transform: translateX(-50%) rotate(-45deg);
+    background: deepskyblue;
+    -webkit-animation: crying 2s infinite;
+}
+.drip::after {
+    content: "";
+    position: absolute;
+    top: 25px;
+    left:-25px;
+    width: 20px;
+    height: 20px;
+    border-radius: 100% 0 100% 100%;
+    background: deepskyblue;
+ }
+ .right-eye > .drip {
+    left:100%;
+ } 
+
+/*######################HOVER EFFECTS################*/
+.head:hover > .eyes > .eye > .wink-eye {
+    position: absolute;
+    top:40%;
+    left:50%;
+    transform: translateX(-50%);
+    height: calc(var(--emoji-size)*.1);
+    width: calc(var(--emoji-size)*.2);
+    background-color: black;
+    border-radius: 50%;
+}
+
+.head:hover > .eyes > .eye > .wink-eye::after {
+    content: "";
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    width: 110%;
+    height: calc(var(--emoji-size)*.125);
+    border-radius: 50% 50% 0 0;
+    background-color: var(--emoji-colour);
+    transform: translate(-50%, -50%);
+}
+
+.head:hover > .wink-mouth > .wink-tongue {
+    height: calc(var(--emoji-size)*.25);
+    width: calc(var(--emoji-size)*.25);
+    border-radius: 0 0 calc(var(--emoji-size)*.25) calc(var(--emoji-size)*.25);
+    border-top: 6px solid #f03a17;
+    border-left: 8px solid #f03a17;
+    border-right: 8px solid #f03a17;
+    border-bottom: 10px solid #f03a17;
+}
+
+.head:hover > .wink-mouth::before{
+    content:"";
+    z-index:12;
+    left:50%;
+    top:35%;
+    position: absolute;
+    height: calc(var(--emoji-size)*.1);
+    width: 2px;
+    background-color: #8a1e08;
+} 
+.head:hover > .wink-mouth {
+    overflow: visible;
+}
+
+.head:hover > .heart{
+    transform:scale(2) rotate(-45deg);
+}
+.head:hover > .eyes > .eye > .drip {
+    opacity: 1;
+}
+
+.laugh:hover {
+    -webkit-animation: rocking 1s infinite;
+}
+@-webkit-keyframes rocking {
+    0%, 100% { transform: rotate(-10deg); }
+    20% {transform:scale(.95);}
+    50% { transform: rotate(10deg); }
+    80% {transform:scale(.95);}
+}
+
+.head:hover  +.party-hat , .head:hover > .lips,
+.head:hover+.party-hat+.kazoo, 
+.head:hover+.party-hat+.kazoo+.confetti-div{
+    opacity: 1;
+}
+
+.head:hover > .smile-mouth {
+    opacity: 0;
+}
